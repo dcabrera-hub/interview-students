@@ -34,6 +34,8 @@ export const ListStudents: React.FC = () => {
     setFilter(payload);
   };
 
+  console.log('Students data:', data); // Debug log to check data
+
   return (
     <>
       <Box sx={{ display: 'flex', mb: 1 }}>
@@ -59,7 +61,7 @@ export const ListStudents: React.FC = () => {
           isLoading,
           isError,
           error: getErrorMsg(error as FetchBaseQueryError | SerializedError).message,
-          users: data?.students || []
+          users: data || [] // Changed from data?.students to data since the API returns students directly! 
         }}
       />
     </>
